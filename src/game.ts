@@ -30,6 +30,11 @@ export function createDeck(
   cardAssets: readonly string[],
 ): Card[] {
   const pairCount = boardSize / 2;
+  if (cardAssets.length < pairCount) {
+    throw new Error(
+      `Not enough card assets for a ${boardSize}-card board. Required ${pairCount}, received ${cardAssets.length}.`,
+    );
+  }
   const selectedAssets = cardAssets.slice(0, pairCount);
   const cards = createCards(selectedAssets);
   return shuffleCards(cards);
