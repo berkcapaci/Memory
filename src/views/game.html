@@ -1,0 +1,39 @@
+<section class="screen game-screen" aria-labelledby="game-title">
+  <header class="game-header">
+    <div>
+      <p class="eyebrow">Memory Arena</p>
+      <h1 id="game-title">Find the pairs</h1>
+    </div>
+    <button class="button button--exit" type="button" data-action="exit-game">Exit Game</button>
+  </header>
+  <main class="game-layout">
+    <aside class="game-sidebar" aria-label="Match status">
+      <section class="scoreboard" aria-labelledby="scoreboard-title">
+        <h2 id="scoreboard-title">Scoreboard</h2>
+        <article class="player-score player-score--blue" data-player-score="blue">
+          <span class="player-score__name">Blue</span>
+          <strong data-score="blue">0</strong>
+        </article>
+        <article class="player-score player-score--orange" data-player-score="orange">
+          <span class="player-score__name">Orange</span>
+          <strong data-score="orange">0</strong>
+        </article>
+      </section>
+      <section class="current-turn" aria-live="polite" aria-atomic="true">
+        <p class="eyebrow">Current player</p>
+        <strong data-current-player>Blue</strong>
+        <span class="current-turn__hint">Match a pair to play again.</span>
+      </section>
+    </aside>
+    <section class="board-panel" aria-labelledby="board-heading">
+      <div class="board-toolbar">
+        <div>
+          <h2 id="board-heading">Card board</h2>
+          <p data-board-label>4 × 4 · Code Vibes</p>
+        </div>
+        <span class="pairs-left" aria-live="polite"><strong data-pairs-left>8</strong> pairs left</span>
+      </div>
+      <div id="game-board" class="memory-board" data-board-size="16" aria-label="Memory card board"></div>
+    </section>
+  </main>
+</section>

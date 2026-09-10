@@ -1,0 +1,59 @@
+@use "../abstracts/variables" as *;
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.screen {
+  position: relative;
+  min-height: 100vh;
+  padding: $space-xl clamp(1rem, 5vw, 4.5rem);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 15% 10%, color-mix(in srgb, $color-accent 18%, transparent), transparent 32%),
+    linear-gradient(145deg, $color-bg 0%, $color-bg-deep 100%);
+}
+
+.screen::before {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background-image: radial-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+  background-size: 22px 22px;
+  opacity: 0.16;
+}
+
+.screen > * {
+  position: relative;
+  z-index: 1;
+}
+
+.page-header,
+.game-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: $space-lg;
+  margin-bottom: $space-xl;
+}
+
+.page-description,
+.home-intro {
+  max-width: 34rem;
+  color: $color-muted;
+  font-size: 1.05rem;
+}
+
+.back-link {
+  display: inline-flex;
+  margin-bottom: $space-lg;
+  color: $color-muted;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.back-link:hover,
+.back-link:focus-visible {
+  color: $color-text;
+}

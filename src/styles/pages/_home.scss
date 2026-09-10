@@ -1,0 +1,91 @@
+@use "../abstracts/variables" as *;
+
+.home-screen {
+  display: grid;
+  place-items: center;
+}
+
+.home-header {
+  max-width: 54rem;
+  text-align: center;
+}
+
+.home-header .eyebrow,
+.home-header h1,
+.home-intro {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.home-content {
+  display: grid;
+  place-items: center;
+  gap: $space-xl;
+  margin-top: $space-xl;
+}
+
+.controller {
+  width: clamp(9rem, 22vw, 15rem);
+  height: clamp(7rem, 17vw, 11rem);
+  animation: controller-float 2.8s ease-in-out infinite;
+}
+
+.controller__body {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 3px solid var(--theme-accent, #{$color-accent});
+  border-radius: 45% 45% 42% 42%;
+  background: linear-gradient(145deg, #3a3457, #211c38);
+  box-shadow: 0 22px 40px rgba(0, 0, 0, 0.35), inset 0 0 0 5px rgba(255, 255, 255, 0.05);
+}
+
+.controller__pad,
+.controller__buttons {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.controller__pad {
+  left: 17%;
+  width: 25%;
+  height: 25%;
+  border-radius: 50%;
+  background: var(--theme-accent, #{$color-accent});
+  box-shadow: 0 0 18px color-mix(in srgb, var(--theme-accent, #{$color-accent}) 60%, transparent);
+}
+
+.controller__buttons {
+  right: 15%;
+  display: flex;
+  gap: 0.45rem;
+}
+
+.controller__buttons i {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  background: #ffb3c5;
+}
+
+.controller__buttons i:nth-child(2) {
+  background: $color-orange;
+}
+
+.controller__buttons i:nth-child(3) {
+  background: $color-blue;
+}
+
+@keyframes controller-float {
+  50% {
+    transform: translateY(-12px) rotate(-2deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .controller {
+    animation: none;
+  }
+}

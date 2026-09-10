@@ -1,0 +1,53 @@
+@use "../abstracts/variables" as *;
+
+.game-layout {
+  display: grid;
+  grid-template-columns: minmax(13rem, 0.75fr) minmax(0, 2.5fr);
+  gap: $space-xl;
+  align-items: start;
+}
+
+.game-sidebar {
+  position: sticky;
+  top: $space-xl;
+}
+
+.game-header .button {
+  margin-top: $space-md;
+}
+
+@media (max-width: $breakpoint-narrow) {
+  .screen {
+    padding-inline: 1rem;
+  }
+
+  .page-header,
+  .game-header,
+  .board-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .settings-layout,
+  .game-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .settings-preview,
+  .game-sidebar {
+    position: static;
+    order: -1;
+  }
+
+  .choice-grid--three {
+    grid-template-columns: 1fr;
+  }
+
+  .memory-board {
+    gap: 0.4rem;
+  }
+
+  .board-toolbar {
+    margin-bottom: $space-md;
+  }
+}

@@ -1,0 +1,25 @@
+<section class="screen game-over-screen" aria-labelledby="game-over-title">
+  <main class="result-panel">
+    <div class="result-confetti" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    <p class="eyebrow">Round complete</p>
+    <h1 id="game-over-title">Game over</h1>
+    <p class="result-message" data-result-message>Blue wins this round.</p>
+    <article class="result-scorecard" aria-labelledby="result-score-title">
+      <h2 id="result-score-title">Final score</h2>
+      <table>
+        <caption class="sr-only">Final scores for both players</caption>
+        <thead>
+          <tr><th scope="col">Player</th><th scope="col">Points</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Blue</th><td data-final-score="blue">0</td></tr>
+          <tr><th scope="row">Orange</th><td data-final-score="orange">0</td></tr>
+        </tbody>
+      </table>
+    </article>
+    <div class="result-actions">
+      <button class="button button--primary button--large" type="button" data-action="new-round">New round</button>
+      <button class="button button--secondary" type="button" data-action="change-settings">Change settings</button>
+    </div>
+  </main>
+</section>

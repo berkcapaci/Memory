@@ -1,0 +1,68 @@
+@use "../abstracts/variables" as *;
+
+.scoreboard,
+.current-turn,
+.result-scorecard {
+  border: 1px solid $color-line;
+  border-radius: $radius-md;
+  background: rgba(255, 255, 255, 0.055);
+  box-shadow: $shadow-soft;
+}
+
+.scoreboard {
+  padding: $space-lg;
+}
+
+.player-score {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-md;
+  padding: $space-md 0;
+}
+
+.player-score + .player-score {
+  border-top: 1px solid $color-line;
+}
+
+.player-score__name {
+  font-weight: 800;
+}
+
+.player-score--blue .player-score__name::before,
+.player-score--orange .player-score__name::before {
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.7rem;
+  margin-right: 0.55rem;
+  border-radius: 50%;
+  content: "";
+}
+
+.player-score--blue .player-score__name::before {
+  background: $color-blue;
+}
+
+.player-score--orange .player-score__name::before {
+  background: $color-orange;
+}
+
+.player-score strong {
+  font-size: 1.6rem;
+}
+
+.current-turn {
+  margin-top: $space-md;
+  padding: $space-lg;
+}
+
+.current-turn > strong {
+  display: block;
+  margin-bottom: $space-xs;
+  font-size: 1.6rem;
+}
+
+.current-turn__hint {
+  color: $color-muted;
+  font-size: 0.9rem;
+}

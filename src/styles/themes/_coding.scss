@@ -1,0 +1,7 @@
+@use "../abstracts/variables" as *;
+
+:root[data-theme="coding"] {
+  --theme-accent: #7dd8c8;
+  --theme-surface: #1d3f45;
+  --theme-glow: rgba(125, 216, 200, 0.2);
+}

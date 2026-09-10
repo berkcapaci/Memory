@@ -1,0 +1,130 @@
+@use "../abstracts/variables" as *;
+
+.settings-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(16rem, 0.75fr);
+  gap: $space-xl;
+  align-items: start;
+}
+
+.settings-form {
+  display: grid;
+  gap: $space-xl;
+}
+
+.settings-section {
+  padding-bottom: $space-lg;
+  border-bottom: 1px solid $color-line;
+}
+
+.choice-grid {
+  display: grid;
+  gap: $space-md;
+}
+
+.choice-grid--two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.choice-grid--three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.choice-choice {
+  display: flex;
+  align-items: center;
+  gap: $space-md;
+  min-height: 4.8rem;
+  padding: $space-md;
+  border: 1px solid $color-line;
+  border-radius: $radius-md;
+  background: rgba(255, 255, 255, 0.045);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color $transition-fast, background $transition-fast, transform $transition-fast;
+}
+
+.choice-choice:hover,
+.choice-choice.is-selected {
+  transform: translateY(-2px);
+}
+
+.choice-choice.is-selected {
+  border-color: color-mix(in srgb, var(--theme-accent, #{$color-accent}) 72%, white);
+  background: color-mix(in srgb, var(--theme-accent, #{$color-accent}) 14%, $color-surface);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+}
+
+.choice-choice strong,
+.choice-choice small {
+  display: block;
+}
+
+.choice-choice small {
+  margin-top: 0.2rem;
+  color: $color-muted;
+}
+
+.choice-choice__swatch {
+  flex: 0 0 auto;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+}
+
+.choice-choice__swatch--blue {
+  background: $color-blue;
+}
+
+.choice-choice__swatch--orange {
+  background: $color-orange;
+}
+
+.choice-choice__icon {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 0.7rem;
+  background: color-mix(in srgb, var(--theme-accent, #{$color-accent}) 20%, $color-surface-strong);
+  color: var(--theme-accent, #{$color-accent});
+  font-weight: 900;
+}
+
+.settings-start {
+  justify-self: start;
+}
+
+.settings-preview,
+.result-panel {
+  position: sticky;
+  top: $space-xl;
+}
+
+.settings-preview {
+  padding: $space-lg;
+  border: 1px solid $color-line;
+  border-radius: $radius-lg;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: $shadow-soft;
+}
+
+.preview-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  margin: $space-lg 0;
+}
+
+.preview-board span {
+  aspect-ratio: 3 / 4;
+  border-radius: 0.5rem;
+  background: linear-gradient(145deg, color-mix(in srgb, var(--theme-accent, #{$color-accent}) 36%, $color-surface), $color-surface-strong);
+}
+
+.preview-copy {
+  margin-bottom: 0;
+  color: $color-muted;
+  font-size: 0.9rem;
+}

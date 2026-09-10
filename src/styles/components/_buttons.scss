@@ -1,0 +1,57 @@
+@use "../abstracts/variables" as *;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-sm;
+  min-height: 3rem;
+  padding: 0.8rem 1.35rem;
+  border: 0;
+  border-radius: $radius-sm;
+  cursor: pointer;
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform $transition-fast, box-shadow $transition-fast, background $transition-fast;
+}
+
+.button:hover,
+.button:focus-visible {
+  transform: translateY(-2px);
+}
+
+.button:focus-visible,
+.choice-choice:focus-visible,
+.memory-card:focus-visible,
+.back-link:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--theme-accent, #{$color-accent}) 75%, white);
+  outline-offset: 3px;
+}
+
+.button--primary {
+  background: var(--theme-accent, #{$color-accent});
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--theme-accent, #{$color-accent}) 28%, transparent);
+  color: #10201d;
+}
+
+.button--primary:hover,
+.button--primary:focus-visible {
+  background: color-mix(in srgb, var(--theme-accent, #{$color-accent}) 86%, white);
+}
+
+.button--secondary {
+  background: $color-surface-strong;
+  color: $color-text;
+}
+
+.button--exit {
+  flex: 0 0 auto;
+  background: rgba(255, 107, 138, 0.14);
+  color: #ffb3c5;
+}
+
+.button--large {
+  min-height: 3.7rem;
+  padding-inline: 1.8rem;
+  font-size: 1.05rem;
+}

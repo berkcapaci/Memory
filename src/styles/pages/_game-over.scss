@@ -1,0 +1,100 @@
+@use "../abstracts/variables" as *;
+
+.game-over-screen {
+  display: grid;
+  place-items: center;
+}
+
+.result-panel {
+  width: min(100%, 38rem);
+  padding: clamp(1.5rem, 6vw, 3.5rem);
+  border: 1px solid $color-line;
+  border-radius: $radius-lg;
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: $shadow-soft;
+  text-align: center;
+}
+
+.result-message {
+  color: $color-accent;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.result-scorecard {
+  margin: $space-xl 0;
+  padding: $space-lg;
+  text-align: left;
+}
+
+.result-scorecard h2 {
+  text-align: center;
+}
+
+.result-scorecard table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.result-scorecard th,
+.result-scorecard td {
+  padding: 0.8rem;
+  border-bottom: 1px solid $color-line;
+  text-align: left;
+}
+
+.result-scorecard thead th {
+  color: $color-muted;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.result-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-md;
+  justify-content: center;
+}
+
+.result-confetti {
+  display: flex;
+  justify-content: center;
+  gap: $space-sm;
+  margin-bottom: $space-lg;
+}
+
+.result-confetti span {
+  width: 0.65rem;
+  height: 1.2rem;
+  border-radius: 99px;
+  background: $color-accent;
+  animation: confetti-fall 1.8s ease-in-out infinite;
+}
+
+.result-confetti span:nth-child(2) {
+  background: $color-orange;
+  animation-delay: -0.4s;
+}
+
+.result-confetti span:nth-child(3) {
+  background: $color-blue;
+  animation-delay: -0.8s;
+}
+
+.result-confetti span:nth-child(4) {
+  background: #f7f3ff;
+  animation-delay: -1.2s;
+}
+
+@keyframes confetti-fall {
+  50% {
+    transform: translateY(-9px) rotate(24deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .result-confetti span {
+    animation: none;
+  }
+}

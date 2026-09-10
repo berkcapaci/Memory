@@ -1,0 +1,7 @@
+@use "../abstracts/variables" as *;
+
+:root[data-theme="projects"] {
+  --theme-accent: #8da7ff;
+  --theme-surface: #29365f;
+  --theme-glow: rgba(141, 167, 255, 0.2);
+}

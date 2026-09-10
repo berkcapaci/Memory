@@ -1,0 +1,40 @@
+@use "../abstracts/variables" as *;
+
+.memory-board {
+  display: grid;
+  grid-template-columns: repeat(var(--board-columns, 4), minmax(0, 1fr));
+  gap: clamp(0.45rem, 1.5vw, 0.9rem);
+  width: 100%;
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+.board-panel {
+  min-width: 0;
+}
+
+.board-toolbar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: $space-md;
+  margin-bottom: $space-lg;
+}
+
+.board-toolbar h2,
+.board-toolbar p {
+  margin-bottom: 0;
+}
+
+.board-toolbar p {
+  color: $color-muted;
+}
+
+.pairs-left {
+  color: $color-muted;
+  font-size: 0.9rem;
+}
+
+.pairs-left strong {
+  color: $color-text;
+}

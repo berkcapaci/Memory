@@ -1,0 +1,82 @@
+<section class="screen settings-screen" aria-labelledby="settings-title">
+  <header class="page-header">
+    <a class="back-link" href="#home" data-action="go-home">← Back</a>
+    <p class="eyebrow">Customize your match</p>
+    <h1 id="settings-title">Game settings</h1>
+    <p class="page-description">Choose your side, board, layout, and visual theme.</p>
+  </header>
+  <main class="settings-layout">
+    <form class="settings-form" aria-label="Memory game settings">
+      <section class="settings-section" aria-labelledby="players-title">
+        <h2 id="players-title">Players</h2>
+        <fieldset class="choice-fieldset">
+          <legend class="sr-only">Choose your side</legend>
+          <div class="choice-grid choice-grid--two">
+            <button class="choice-choice is-selected" type="button" data-setting="player" data-value="blue" aria-pressed="true">
+              <span class="choice-choice__swatch choice-choice__swatch--blue"></span>
+              <span><strong>Blue</strong><small>Player one</small></span>
+            </button>
+            <button class="choice-choice" type="button" data-setting="player" data-value="orange" aria-pressed="false">
+              <span class="choice-choice__swatch choice-choice__swatch--orange"></span>
+              <span><strong>Orange</strong><small>Player two</small></span>
+            </button>
+          </div>
+        </fieldset>
+      </section>
+      <section class="settings-section" aria-labelledby="board-title">
+        <h2 id="board-title">Board size</h2>
+        <div class="choice-grid choice-grid--three">
+          <button class="choice-choice is-selected" type="button" data-setting="boardSize" data-value="16" aria-pressed="true">
+            <strong>4 × 4</strong><small>16 cards</small>
+          </button>
+          <button class="choice-choice" type="button" data-setting="boardSize" data-value="24" aria-pressed="false">
+            <strong>4 × 6</strong><small>24 cards</small>
+          </button>
+          <button class="choice-choice" type="button" data-setting="boardSize" data-value="36" aria-pressed="false">
+            <strong>6 × 6</strong><small>36 cards</small>
+          </button>
+        </div>
+      </section>
+      <section class="settings-section" aria-labelledby="layout-title">
+        <h2 id="layout-title">Layout</h2>
+        <div class="choice-grid choice-grid--two">
+          <button class="choice-choice is-selected" type="button" data-setting="layout" data-value="classic" aria-pressed="true">
+            <span class="choice-choice__icon">◇</span><span><strong>Classic</strong><small>Balanced and bright</small></span>
+          </button>
+          <button class="choice-choice" type="button" data-setting="layout" data-value="modern" aria-pressed="false">
+            <span class="choice-choice__icon">✦</span><span><strong>Modern</strong><small>Bold and focused</small></span>
+          </button>
+        </div>
+      </section>
+      <section class="settings-section" aria-labelledby="theme-title">
+        <h2 id="theme-title">Theme</h2>
+        <div class="choice-grid choice-grid--two">
+          <button class="choice-choice is-selected" type="button" data-setting="theme" data-value="coding" aria-pressed="true">
+            <span class="choice-choice__icon">⟨/⟩</span><span><strong>Code Vibes</strong><small>Tech motifs</small></span>
+          </button>
+          <button class="choice-choice" type="button" data-setting="theme" data-value="gaming" aria-pressed="false">
+            <span class="choice-choice__icon">⌁</span><span><strong>Gaming</strong><small>Playful motifs</small></span>
+          </button>
+          <button class="choice-choice" type="button" data-setting="theme" data-value="projects" aria-pressed="false">
+            <span class="choice-choice__icon">▣</span><span><strong>DA Projects</strong><small>Creative motifs</small></span>
+          </button>
+          <button class="choice-choice" type="button" data-setting="theme" data-value="foods" aria-pressed="false">
+            <span class="choice-choice__icon">●</span><span><strong>Foods</strong><small>Tasty motifs</small></span>
+          </button>
+        </div>
+      </section>
+      <button class="button button--primary button--large settings-start" type="button" data-action="start-game">
+        Start game <span aria-hidden="true">→</span>
+      </button>
+    </form>
+    <aside class="settings-preview" aria-label="Settings preview">
+      <p class="eyebrow">Preview</p>
+      <h2>Your arena</h2>
+      <div class="preview-board" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <p class="preview-copy">Every theme includes its own card illustrations and color story.</p>
+    </aside>
+  </main>
+</section>

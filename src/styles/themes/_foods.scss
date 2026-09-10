@@ -1,0 +1,7 @@
+@use "../abstracts/variables" as *;
+
+:root[data-theme="foods"] {
+  --theme-accent: #ffb35c;
+  --theme-surface: #5b3a25;
+  --theme-glow: rgba(255, 179, 92, 0.2);
+}
