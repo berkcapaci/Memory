@@ -1,6 +1,6 @@
 export type BoardSize = 16 | 24 | 36;
 export type PlayerId = "blue" | "orange";
-export type ThemeId = "coding" | "gaming" | "projects" | "foods";
+export type ThemeId = "coding" | "projects" | "foods";
 export type LayoutId = "classic" | "modern";
 
 export interface Card {

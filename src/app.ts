@@ -223,7 +223,7 @@ function parseLayout(value: string): LayoutId | null {
 
 /** Parses a theme id. */
 function parseTheme(value: string): ThemeId | null {
-  if (value === "coding" || value === "gaming" || value === "projects" || value === "foods") {
+  if (value === "coding" || value === "projects" || value === "foods") {
     return value;
   }
   return null;

@@ -1,45 +1,24 @@
 import type { ThemeAssetRecord, ThemeId } from "./model";
 
 const codingCards = [
-  new URL("../assets/components/Code vibes card 1.png", import.meta.url).href,
-  new URL("../assets/components/Code vibes card 2.png", import.meta.url).href,
-  new URL("../assets/components/Code vibes card 3.png", import.meta.url).href,
-  new URL("../assets/components/Code vibes card 4.png", import.meta.url).href,
-  new URL("../assets/components/Code vibes card 5.png", import.meta.url).href,
-  new URL("../assets/components/Code vibes card 6.png", import.meta.url).href,
-  new URL("../assets/components/Code vibes card 7.png", import.meta.url).href,
-  new URL("../assets/components/Code vibes card 8.png", import.meta.url).href,
-  new URL("../assets/components/Code vibes card 9.png", import.meta.url).href,
-  new URL("../assets/components/Code vibes card 10.png", import.meta.url).href,
-  new URL("../assets/components/Code vibes card 11.png", import.meta.url).href,
-  new URL("../assets/components/Code vibes card 12.png", import.meta.url).href,
-  new URL("../assets/components/Code vibes card 13.png", import.meta.url).href,
-  new URL("../assets/components/Code vibes card 14.png", import.meta.url).href,
-  new URL("../assets/components/Code vibes card 15.png", import.meta.url).href,
-  new URL("../assets/components/Code vibes card 16.png", import.meta.url).href,
-  new URL("../assets/components/Code vibes card 17.png", import.meta.url).href,
-  new URL("../assets/components/Code vibes card 18.png", import.meta.url).href,
-];
-
-const gamingCards = [
-  new URL("../assets/components/Game card 1.png", import.meta.url).href,
-  new URL("../assets/components/Game card 2.png", import.meta.url).href,
-  new URL("../assets/components/Game card 3.png", import.meta.url).href,
-  new URL("../assets/components/Game card 4.png", import.meta.url).href,
-  new URL("../assets/components/Game card 5.png", import.meta.url).href,
-  new URL("../assets/components/Game card 6.png", import.meta.url).href,
-  new URL("../assets/components/Game card 7.png", import.meta.url).href,
-  new URL("../assets/components/Game card 8.png", import.meta.url).href,
-  new URL("../assets/components/Game card 9.png", import.meta.url).href,
-  new URL("../assets/components/Game card 10.png", import.meta.url).href,
-  new URL("../assets/components/Game card 11.png", import.meta.url).href,
-  new URL("../assets/components/Game card 12.png", import.meta.url).href,
-  new URL("../assets/components/Game card 13.png", import.meta.url).href,
-  new URL("../assets/components/Game card 14.png", import.meta.url).href,
-  new URL("../assets/components/Game card 15.png", import.meta.url).href,
-  new URL("../assets/components/Game card 16.png", import.meta.url).href,
-  new URL("../assets/components/Game card 17.png", import.meta.url).href,
-  new URL("../assets/components/Game card 18.png", import.meta.url).href,
+  new URL("../assets/backside_photos/Code-1.png", import.meta.url).href,
+  new URL("../assets/backside_photos/Code-2.png", import.meta.url).href,
+  new URL("../assets/backside_photos/Code-3.png", import.meta.url).href,
+  new URL("../assets/backside_photos/Code-4.png", import.meta.url).href,
+  new URL("../assets/backside_photos/Code-5.png", import.meta.url).href,
+  new URL("../assets/backside_photos/Code-6.png", import.meta.url).href,
+  new URL("../assets/backside_photos/Code-7.png", import.meta.url).href,
+  new URL("../assets/backside_photos/Code-8.png", import.meta.url).href,
+  new URL("../assets/backside_photos/Code-9.png", import.meta.url).href,
+  new URL("../assets/backside_photos/Code-10.png", import.meta.url).href,
+  new URL("../assets/backside_photos/Code-11.png", import.meta.url).href,
+  new URL("../assets/backside_photos/Code-12.png", import.meta.url).href,
+  new URL("../assets/backside_photos/Code-13.png", import.meta.url).href,
+  new URL("../assets/backside_photos/Code-14.png", import.meta.url).href,
+  new URL("../assets/backside_photos/Code-15.png", import.meta.url).href,
+  new URL("../assets/backside_photos/Code-16.png", import.meta.url).href,
+  new URL("../assets/backside_photos/Code-17.png", import.meta.url).href,
+  new URL("../assets/backside_photos/Code-18.png", import.meta.url).href,
 ];
 
 const projectsCards = [
@@ -86,7 +65,6 @@ const foodsCards = [
 
 export const themeAssets: ThemeAssetRecord = {
   coding: { id: "coding", label: "Code Vibes", cards: codingCards },
-  gaming: { id: "gaming", label: "Gaming", cards: gamingCards },
   projects: { id: "projects", label: "DA Projects", cards: projectsCards },
   foods: { id: "foods", label: "Foods", cards: foodsCards },
 };
