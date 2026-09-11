@@ -22,17 +22,10 @@ $space-xl: 2.5rem;
 $transition-fast: 180ms ease;
 $transition-card: 520ms cubic-bezier(0.2, 0.8, 0.2, 1);
 $breakpoint-narrow: 760px;
+$max-content-width: 1440px;
 
 :root {
   --theme-accent: #{$color-accent};
   --theme-surface: #{$color-surface};
   --theme-glow: rgba(125, 216, 200, 0.2);
-  --layout-radius: #{$radius-md};
-}
-
-:root[data-layout="modern"] {
-  --theme-accent: #b9a6ff;
-  --theme-surface: #342b56;
-  --theme-glow: rgba(185, 166, 255, 0.2);
-  --layout-radius: 0.55rem;
 }

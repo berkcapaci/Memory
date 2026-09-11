@@ -63,10 +63,14 @@ const foodsCards = [
   new URL("../assets/backside_photos/food-18.png", import.meta.url).href,
 ];
 
+const codingFront = new URL("../assets/backside_photos/Code-front.png", import.meta.url).href;
+const projectsFront = new URL("../assets/backside_photos/DAP-front.png", import.meta.url).href;
+const foodsFront = new URL("../assets/backside_photos/food-front.png", import.meta.url).href;
+
 export const themeAssets: ThemeAssetRecord = {
-  coding: { id: "coding", label: "Code Vibes", cards: codingCards },
-  projects: { id: "projects", label: "DA Projects", cards: projectsCards },
-  foods: { id: "foods", label: "Foods", cards: foodsCards },
+  coding: { id: "coding", label: "Code Vibes", cards: codingCards, front: codingFront },
+  projects: { id: "projects", label: "DA Projects", cards: projectsCards, front: projectsFront },
+  foods: { id: "foods", label: "Foods", cards: foodsCards, front: foodsFront },
 };
 
 export const cardBackAsset = new URL(
@@ -77,6 +81,11 @@ export const cardBackAsset = new URL(
 /** Returns the card face assets for a theme. */
 export function getThemeCards(theme: ThemeId): readonly string[] {
   return themeAssets[theme].cards;
+}
+
+/** Returns the visible cover asset for a theme. */
+export function getThemeFront(theme: ThemeId): string {
+  return themeAssets[theme].front;
 }
 
 /** Returns the visible label for a theme. */

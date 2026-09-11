@@ -1,6 +1,6 @@
 import "./styles/main.scss";
 
-import { getThemeCards, getThemeLabel } from "./assets";
+import { getThemeCards, getThemeFront, getThemeLabel } from "./assets";
 import {
   calculateResult,
   createGameState,
@@ -15,7 +15,6 @@ import type {
   Card,
   CardSelection,
   GameState,
-  LayoutId,
   PlayerId,
   Settings,
   ThemeId,
@@ -29,7 +28,6 @@ const APP_ROOT = document.getElementById("app") as HTMLElement;
 const DEFAULT_SETTINGS: Settings = {
   boardSize: 16,
   theme: "coding",
-  layout: "classic",
   player: "blue",
 };
 const MISMATCH_DELAY_MS = 1200;
@@ -43,7 +41,7 @@ type ActionName =
   | "exit-game"
   | "new-round"
   | "change-settings";
-type SettingName = "player" | "boardSize" | "layout" | "theme";
+type SettingName = "player" | "boardSize" | "theme";
 
 let settings: Settings = { ...DEFAULT_SETTINGS };
 let gameState: GameState | null = null;
@@ -163,7 +161,7 @@ function handleAction(action: ActionName | null): void {
 
 /** Parses a setting name from a control. */
 function parseSettingName(value: string | undefined): SettingName | null {
-  if (value === "player" || value === "boardSize" || value === "layout" || value === "theme") {
+  if (value === "player" || value === "boardSize" || value === "theme") {
     return value;
   }
   return null;
@@ -185,8 +183,6 @@ function updateSetting(name: SettingName, value: string): void {
     settings.player = parsePlayer(value) ?? settings.player;
   } else if (name === "boardSize") {
     settings.boardSize = parseBoardSize(value) ?? settings.boardSize;
-  } else if (name === "layout") {
-    settings.layout = parseLayout(value) ?? settings.layout;
   } else {
     settings.theme = parseTheme(value) ?? settings.theme;
   }
@@ -213,14 +209,6 @@ function parseBoardSize(value: string): BoardSize | null {
   return null;
 }
 
-/** Parses a layout id. */
-function parseLayout(value: string): LayoutId | null {
-  if (value === "classic" || value === "modern") {
-    return value;
-  }
-  return null;
-}
-
 /** Parses a theme id. */
 function parseTheme(value: string): ThemeId | null {
   if (value === "coding" || value === "projects" || value === "foods") {
@@ -229,10 +217,9 @@ function parseTheme(value: string): ThemeId | null {
   return null;
 }
 
-/** Applies theme and layout hooks to the document. */
+/** Applies the theme hook to the document. */
 function applyVisualSettings(): void {
   document.documentElement.dataset.theme = settings.theme;
-  document.documentElement.dataset.layout = settings.layout;
 }
 
 /** Synchronizes selected states in the settings form. */
@@ -258,9 +245,6 @@ function isSettingSelected(name: SettingName, value: string): boolean {
   if (name === "boardSize") {
     return String(settings.boardSize) === value;
   }
-  if (name === "layout") {
-    return settings.layout === value;
-  }
   return settings.theme === value;
 }
 
@@ -272,11 +256,12 @@ function renderBoard(): void {
   }
   board.style.setProperty("--board-columns", String(getBoardColumns(settings.boardSize)));
   board.dataset.boardSize = String(settings.boardSize);
-  board.replaceChildren(...gameState.cards.map((card) => createCardElement(card)));
+  const frontAsset = getThemeFront(settings.theme);
+  board.replaceChildren(...gameState.cards.map((card) => createCardElement(card, frontAsset)));
 }
 
 /** Creates one accessible card button. */
-function createCardElement(card: Card): HTMLButtonElement {
+function createCardElement(card: Card, frontAsset: string): HTMLButtonElement {
   const button = document.createElement("button");
   button.type = "button";
   button.className = "memory-card";
@@ -284,7 +269,7 @@ function createCardElement(card: Card): HTMLButtonElement {
   button.disabled = card.matched;
   button.setAttribute("aria-label", getCardLabel(card));
   button.setAttribute("aria-pressed", String(card.faceUp || card.matched));
-  const backFace = createCardFace("back", "", "");
+  const backFace = createCardFace("back", frontAsset, "");
   const frontFace = createCardFace("front", card.asset, getCardLabel(card));
   button.append(backFace, frontFace);
   return button;

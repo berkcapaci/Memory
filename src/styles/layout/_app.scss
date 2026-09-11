@@ -27,6 +27,8 @@
 .screen > * {
   position: relative;
   z-index: 1;
+  max-width: $max-content-width;
+  margin-inline: auto;
 }
 
 .page-header,
