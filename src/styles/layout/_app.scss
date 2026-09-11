@@ -7,7 +7,7 @@
 .screen {
   position: relative;
   min-height: 100vh;
-  padding: $space-xl clamp(1rem, 5vw, 4.5rem);
+  padding: var(--layout-page-padding-block) var(--layout-page-padding-inline);
   overflow: hidden;
   background:
     radial-gradient(circle at 15% 10%, color-mix(in srgb, $color-accent 18%, transparent), transparent 32%),
@@ -27,7 +27,7 @@
 .screen > * {
   position: relative;
   z-index: 1;
-  max-width: $max-content-width;
+  max-width: var(--layout-content-max-width);
   margin-inline: auto;
 }
 
@@ -36,8 +36,8 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: $space-lg;
-  margin-bottom: $space-xl;
+  gap: var(--layout-header-gap);
+  margin-bottom: var(--layout-header-margin-bottom);
 }
 
 .page-description,

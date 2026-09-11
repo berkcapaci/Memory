@@ -37,3 +37,20 @@
     </section>
   </main>
 </section>
+
+<dialog
+  id="exit-game-confirmation"
+  class="exit-game-dialog"
+  aria-labelledby="exit-game-confirmation-title"
+  aria-describedby="exit-game-confirmation-description"
+>
+  <div class="exit-game-dialog__panel">
+    <p class="eyebrow">Current round</p>
+    <h2 id="exit-game-confirmation-title">Exit game?</h2>
+    <p id="exit-game-confirmation-description">Your current round will end if you leave.</p>
+    <div class="exit-game-dialog__actions">
+      <button class="button button--secondary button--large" type="button" data-action="back-to-game">Back to game</button>
+      <button class="button button--exit button--large" type="button" data-action="confirm-exit-game">Exit game</button>
+    </div>
+  </div>
+</dialog>

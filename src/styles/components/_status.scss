@@ -4,7 +4,7 @@
 .current-turn,
 .result-scorecard {
   border: 1px solid $color-line;
-  border-radius: $radius-md;
+  border-radius: var(--layout-panel-radius);
   background: rgba(255, 255, 255, 0.055);
   box-shadow: $shadow-soft;
 }

@@ -3,7 +3,7 @@
     <a class="back-link" href="#home" data-action="go-home">← Back</a>
     <p class="eyebrow">Customize your match</p>
     <h1 id="settings-title">Game settings</h1>
-    <p class="page-description">Choose your side, board, and visual theme.</p>
+    <p class="page-description">Choose your side, board, layout, and visual theme.</p>
   </header>
   <main class="settings-layout">
     <form class="settings-form" aria-label="Memory game settings">
@@ -34,6 +34,17 @@
           </button>
           <button class="choice-choice" type="button" data-setting="boardSize" data-value="36" aria-pressed="false">
             <strong>6 × 6</strong><small>36 cards</small>
+          </button>
+        </div>
+      </section>
+      <section class="settings-section" aria-labelledby="layout-title">
+        <h2 id="layout-title">Layout</h2>
+        <div class="choice-grid choice-grid--two" role="group" aria-labelledby="layout-title">
+          <button class="choice-choice is-selected" type="button" data-setting="layout" data-value="classic" aria-pressed="true">
+            <span class="choice-choice__icon">▤</span><span><strong>Classic</strong><small>Familiar two-column layout</small></span>
+          </button>
+          <button class="choice-choice" type="button" data-setting="layout" data-value="modern" aria-pressed="false">
+            <span class="choice-choice__icon">▥</span><span><strong>Modern</strong><small>Compact, focused layout</small></span>
           </button>
         </div>
       </section>

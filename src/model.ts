@@ -1,6 +1,7 @@
 export type BoardSize = 16 | 24 | 36;
 export type PlayerId = "blue" | "orange";
 export type ThemeId = "coding" | "projects" | "foods";
+export type LayoutId = "classic" | "modern";
 
 export interface Card {
   id: number;
@@ -13,6 +14,7 @@ export interface Card {
 export interface Settings {
   boardSize: BoardSize;
   theme: ThemeId;
+  layout: LayoutId;
   player: PlayerId;
 }
 

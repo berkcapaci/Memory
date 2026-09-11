@@ -6,10 +6,10 @@
 }
 
 .result-panel {
-  width: min(100%, 38rem);
-  padding: clamp(1.5rem, 6vw, 3.5rem);
+  width: min(100%, var(--layout-result-width));
+  padding: var(--layout-result-padding);
   border: 1px solid $color-line;
-  border-radius: $radius-lg;
+  border-radius: var(--layout-result-radius);
   background: rgba(255, 255, 255, 0.06);
   box-shadow: $shadow-soft;
   text-align: center;
@@ -22,8 +22,8 @@
 }
 
 .result-scorecard {
-  margin: $space-xl 0;
-  padding: $space-lg;
+  margin: var(--layout-result-scorecard-margin);
+  padding: var(--layout-result-scorecard-padding);
   text-align: left;
 }
 
@@ -53,7 +53,7 @@
 .result-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: $space-md;
+  gap: var(--layout-result-actions-gap);
   justify-content: center;
 }
 

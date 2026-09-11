@@ -2,24 +2,24 @@
 
 .settings-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(16rem, 0.75fr);
-  gap: $space-xl;
+  grid-template-columns: var(--layout-settings-columns);
+  gap: var(--layout-settings-gap);
   align-items: start;
 }
 
 .settings-form {
   display: grid;
-  gap: $space-xl;
+  gap: var(--layout-settings-form-gap);
 }
 
 .settings-section {
-  padding-bottom: $space-lg;
+  padding-bottom: var(--layout-settings-section-padding-bottom);
   border-bottom: 1px solid $color-line;
 }
 
 .choice-grid {
   display: grid;
-  gap: $space-md;
+  gap: var(--layout-choice-gap);
 }
 
 .choice-grid--two {
@@ -34,10 +34,10 @@
   display: flex;
   align-items: center;
   gap: $space-md;
-  min-height: 4.8rem;
-  padding: $space-md;
+  min-height: var(--layout-choice-min-height);
+  padding: var(--layout-choice-padding);
   border: 1px solid $color-line;
-  border-radius: $radius-md;
+  border-radius: var(--layout-control-radius);
   background: rgba(255, 255, 255, 0.045);
   cursor: pointer;
   text-align: left;
@@ -86,7 +86,7 @@
   place-items: center;
   width: 2.2rem;
   height: 2.2rem;
-  border-radius: 0.7rem;
+  border-radius: var(--layout-choice-icon-radius);
   background: color-mix(in srgb, var(--theme-accent, #{$color-accent}) 20%, $color-surface-strong);
   color: var(--theme-accent, #{$color-accent});
   font-weight: 900;
@@ -99,13 +99,13 @@
 .settings-preview,
 .result-panel {
   position: sticky;
-  top: $space-xl;
+  top: var(--layout-preview-top);
 }
 
 .settings-preview {
-  padding: $space-lg;
+  padding: var(--layout-preview-padding);
   border: 1px solid $color-line;
-  border-radius: $radius-lg;
+  border-radius: var(--layout-preview-radius);
   background: rgba(255, 255, 255, 0.05);
   box-shadow: $shadow-soft;
 }
@@ -119,7 +119,7 @@
 
 .preview-board span {
   aspect-ratio: 3 / 4;
-  border-radius: 0.5rem;
+  border-radius: var(--layout-preview-card-radius);
   background: linear-gradient(145deg, color-mix(in srgb, var(--theme-accent, #{$color-accent}) 36%, $color-surface), $color-surface-strong);
 }
 

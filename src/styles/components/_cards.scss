@@ -5,7 +5,7 @@
   aspect-ratio: 3 / 4;
   padding: 0;
   border: 0;
-  border-radius: $radius-sm;
+  border-radius: var(--layout-card-radius);
   background: transparent;
   cursor: pointer;
   perspective: 900px;

@@ -1,0 +1,85 @@
+:root {
+  --layout-page-padding-block: 2.5rem;
+  --layout-page-padding-inline: clamp(1rem, 5vw, 4.5rem);
+  --layout-content-max-width: 1440px;
+  --layout-header-gap: 1.5rem;
+  --layout-header-margin-bottom: 2.5rem;
+
+  --layout-control-radius: 0.75rem;
+  --layout-panel-radius: 1.25rem;
+  --layout-card-radius: 0.75rem;
+
+  --layout-settings-columns: minmax(0, 1.5fr) minmax(16rem, 0.75fr);
+  --layout-settings-gap: 2.5rem;
+  --layout-settings-form-gap: 2.5rem;
+  --layout-settings-section-padding-bottom: 1.5rem;
+  --layout-choice-gap: 1rem;
+  --layout-choice-min-height: 4.8rem;
+  --layout-choice-padding: 1rem;
+  --layout-choice-icon-radius: 0.7rem;
+  --layout-preview-top: 2.5rem;
+  --layout-preview-padding: 1.5rem;
+  --layout-preview-radius: 2rem;
+  --layout-preview-card-radius: 0.5rem;
+
+  --layout-game-columns: minmax(13rem, 0.75fr) minmax(0, 2.5fr);
+  --layout-game-gap: 2.5rem;
+  --layout-sidebar-top: 2.5rem;
+  --layout-board-max-width: 72rem;
+  --layout-board-gap: clamp(0.45rem, 1.5vw, 0.9rem);
+
+  --layout-home-content-gap: 2.5rem;
+  --layout-home-margin-top: 2.5rem;
+  --layout-controller-width: clamp(9rem, 22vw, 15rem);
+  --layout-controller-height: clamp(7rem, 17vw, 11rem);
+
+  --layout-result-width: 38rem;
+  --layout-result-padding: clamp(1.5rem, 6vw, 3.5rem);
+  --layout-result-radius: 2rem;
+  --layout-result-scorecard-margin: 2.5rem 0;
+  --layout-result-scorecard-padding: 1.5rem;
+  --layout-result-actions-gap: 1rem;
+}
+
+:root[data-layout="modern"] {
+  --layout-page-padding-block: clamp(1rem, 3vw, 1.75rem);
+  --layout-page-padding-inline: clamp(1rem, 3vw, 1.75rem);
+  --layout-content-max-width: 1180px;
+  --layout-header-gap: 1rem;
+  --layout-header-margin-bottom: 1.5rem;
+
+  --layout-control-radius: 0.65rem;
+  --layout-panel-radius: 0.85rem;
+  --layout-card-radius: 0.65rem;
+
+  --layout-settings-columns: minmax(0, 1.35fr) minmax(13rem, 0.65fr);
+  --layout-settings-gap: 1.5rem;
+  --layout-settings-form-gap: 1.5rem;
+  --layout-settings-section-padding-bottom: 1rem;
+  --layout-choice-gap: 0.75rem;
+  --layout-choice-min-height: 4rem;
+  --layout-choice-padding: 0.85rem;
+  --layout-choice-icon-radius: 0.6rem;
+  --layout-preview-top: 1.25rem;
+  --layout-preview-padding: 1rem;
+  --layout-preview-radius: 1rem;
+  --layout-preview-card-radius: 0.4rem;
+
+  --layout-game-columns: minmax(11rem, 0.65fr) minmax(0, 2.5fr);
+  --layout-game-gap: 1.5rem;
+  --layout-sidebar-top: 1.25rem;
+  --layout-board-max-width: 64rem;
+  --layout-board-gap: clamp(0.35rem, 1vw, 0.65rem);
+
+  --layout-home-content-gap: 1.5rem;
+  --layout-home-margin-top: 1.5rem;
+  --layout-controller-width: clamp(7rem, 16vw, 11rem);
+  --layout-controller-height: clamp(5.5rem, 13vw, 8rem);
+
+  --layout-result-width: 34rem;
+  --layout-result-padding: clamp(1.25rem, 4vw, 2.25rem);
+  --layout-result-radius: 1rem;
+  --layout-result-scorecard-margin: 1.5rem 0;
+  --layout-result-scorecard-padding: 1rem;
+  --layout-result-actions-gap: 0.75rem;
+}

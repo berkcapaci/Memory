@@ -2,18 +2,69 @@
 
 .game-layout {
   display: grid;
-  grid-template-columns: minmax(13rem, 0.75fr) minmax(0, 2.5fr);
-  gap: $space-xl;
+  grid-template-columns: var(--layout-game-columns);
+  gap: var(--layout-game-gap);
   align-items: start;
 }
 
 .game-sidebar {
   position: sticky;
-  top: $space-xl;
+  top: var(--layout-sidebar-top);
 }
 
 .game-header .button {
   margin-top: $space-md;
+}
+
+.exit-game-dialog {
+  position: fixed;
+  inset: 0;
+  width: min(calc(100% - 2rem), 30rem);
+  max-height: calc(100vh - 2rem);
+  margin: auto;
+  padding: 0;
+  border: 0;
+  border-radius: var(--layout-panel-radius);
+  background: transparent;
+  color: $color-text;
+  box-shadow: $shadow-soft;
+  overflow: auto;
+}
+
+.exit-game-dialog::backdrop {
+  background: rgba(8, 7, 14, 0.72);
+  backdrop-filter: blur(4px);
+}
+
+.exit-game-dialog__panel {
+  padding: clamp(1.5rem, 6vw, 2.5rem);
+  border: 1px solid $color-line;
+  border-radius: var(--layout-panel-radius);
+  background: $color-surface;
+  text-align: center;
+}
+
+.exit-game-dialog__panel h2 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.exit-game-dialog__panel > p:last-of-type {
+  margin: $space-md 0 $space-xl;
+  color: $color-muted;
+}
+
+.exit-game-dialog__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-md;
+  justify-content: center;
+}
+
+@media (max-width: $breakpoint-narrow) {
+  .exit-game-dialog__actions {
+    flex-direction: column;
+  }
 }
 
 @media (max-width: $breakpoint-narrow) {

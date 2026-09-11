@@ -15,6 +15,7 @@ import type {
   Card,
   CardSelection,
   GameState,
+  LayoutId,
   PlayerId,
   Settings,
   ThemeId,
@@ -28,6 +29,7 @@ const APP_ROOT = document.getElementById("app") as HTMLElement;
 const DEFAULT_SETTINGS: Settings = {
   boardSize: 16,
   theme: "coding",
+  layout: "classic",
   player: "blue",
 };
 const MISMATCH_DELAY_MS = 1200;
@@ -39,9 +41,11 @@ type ActionName =
   | "go-settings"
   | "start-game"
   | "exit-game"
+  | "back-to-game"
+  | "confirm-exit-game"
   | "new-round"
   | "change-settings";
-type SettingName = "player" | "boardSize" | "theme";
+type SettingName = "player" | "boardSize" | "layout" | "theme";
 
 let settings: Settings = { ...DEFAULT_SETTINGS };
 let gameState: GameState | null = null;
@@ -90,7 +94,26 @@ function renderGameOver(): void {
   clearTimers();
   document.body.dataset.screen = "gameOver";
   APP_ROOT.innerHTML = gameOverTemplate;
+  applyVisualSettings();
   updateGameOver();
+}
+
+/** Opens the exit confirmation without changing the active game. */
+function showExitGameConfirmation(): void {
+  const dialog = APP_ROOT.querySelector<HTMLDialogElement>("#exit-game-confirmation");
+  if (!dialog || dialog.open) {
+    return;
+  }
+  dialog.showModal();
+  dialog.querySelector<HTMLButtonElement>("[data-action='back-to-game']")?.focus();
+}
+
+/** Closes the exit confirmation when it is open. */
+function closeExitGameConfirmation(): void {
+  const dialog = APP_ROOT.querySelector<HTMLDialogElement>("#exit-game-confirmation");
+  if (dialog?.open) {
+    dialog.close();
+  }
 }
 
 /** Handles clicks from any rendered screen. */
@@ -132,6 +155,12 @@ function parseAction(value: string | undefined): ActionName | null {
   if (value === "exit-game") {
     return "exit-game";
   }
+  if (value === "back-to-game") {
+    return "back-to-game";
+  }
+  if (value === "confirm-exit-game") {
+    return "confirm-exit-game";
+  }
   if (value === "new-round") {
     return "new-round";
   }
@@ -150,7 +179,20 @@ function handleAction(action: ActionName | null): void {
     renderHome();
     return;
   }
-  if (action === "go-settings" || action === "exit-game" || action === "change-settings") {
+  if (action === "exit-game") {
+    showExitGameConfirmation();
+    return;
+  }
+  if (action === "back-to-game") {
+    closeExitGameConfirmation();
+    return;
+  }
+  if (action === "confirm-exit-game") {
+    closeExitGameConfirmation();
+    renderSettings();
+    return;
+  }
+  if (action === "go-settings" || action === "change-settings") {
     renderSettings();
     return;
   }
@@ -161,7 +203,7 @@ function handleAction(action: ActionName | null): void {
 
 /** Parses a setting name from a control. */
 function parseSettingName(value: string | undefined): SettingName | null {
-  if (value === "player" || value === "boardSize" || value === "theme") {
+  if (value === "player" || value === "boardSize" || value === "layout" || value === "theme") {
     return value;
   }
   return null;
@@ -183,6 +225,8 @@ function updateSetting(name: SettingName, value: string): void {
     settings.player = parsePlayer(value) ?? settings.player;
   } else if (name === "boardSize") {
     settings.boardSize = parseBoardSize(value) ?? settings.boardSize;
+  } else if (name === "layout") {
+    settings.layout = parseLayout(value) ?? settings.layout;
   } else {
     settings.theme = parseTheme(value) ?? settings.theme;
   }
@@ -209,6 +253,14 @@ function parseBoardSize(value: string): BoardSize | null {
   return null;
 }
 
+/** Parses a layout preset id. */
+function parseLayout(value: string): LayoutId | null {
+  if (value === "classic" || value === "modern") {
+    return value;
+  }
+  return null;
+}
+
 /** Parses a theme id. */
 function parseTheme(value: string): ThemeId | null {
   if (value === "coding" || value === "projects" || value === "foods") {
@@ -220,6 +272,7 @@ function parseTheme(value: string): ThemeId | null {
 /** Applies the theme hook to the document. */
 function applyVisualSettings(): void {
   document.documentElement.dataset.theme = settings.theme;
+  document.documentElement.dataset.layout = settings.layout;
 }
 
 /** Synchronizes selected states in the settings form. */
@@ -244,6 +297,9 @@ function isSettingSelected(name: SettingName, value: string): boolean {
   }
   if (name === "boardSize") {
     return String(settings.boardSize) === value;
+  }
+  if (name === "layout") {
+    return settings.layout === value;
   }
   return settings.theme === value;
 }

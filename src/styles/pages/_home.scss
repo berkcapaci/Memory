@@ -20,13 +20,13 @@
 .home-content {
   display: grid;
   place-items: center;
-  gap: $space-xl;
-  margin-top: $space-xl;
+  gap: var(--layout-home-content-gap);
+  margin-top: var(--layout-home-margin-top);
 }
 
 .controller {
-  width: clamp(9rem, 22vw, 15rem);
-  height: clamp(7rem, 17vw, 11rem);
+  width: var(--layout-controller-width);
+  height: var(--layout-controller-height);
   animation: controller-float 2.8s ease-in-out infinite;
 }
 
